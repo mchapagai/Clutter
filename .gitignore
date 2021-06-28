@@ -10,6 +10,7 @@
 .svn/
 .metadata
 pubspec.lock
+coverage/
 
 # IntelliJ related
 *.iml
