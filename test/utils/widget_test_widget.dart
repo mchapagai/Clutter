@@ -1,3 +1,5 @@
+import 'package:clutter/navigation/routes.dart';
+import 'package:clutter/ui_kit/cluttter_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:mockito/mockito.dart';
 
@@ -17,10 +19,12 @@ class WidgetTestWrapper extends StatelessWidget {
     return MaterialApp(
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      // initialRoute: Routes.initialRoute,
+      initialRoute: Routes.initialRoute,
+      themeMode: ThemeMode.system,
+      theme: ClutterTheme.clutterLightTheme,
       builder: (context, child) {
         return Theme(
-          data: ThemeData(),
+          data: ClutterTheme.clutterDarkTheme,
           child: child ?? this.child,
         );
       },

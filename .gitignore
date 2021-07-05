@@ -4,6 +4,7 @@
 *.pyc
 *.swp
 .DS_Store
+.localized
 .atom/
 .buildlog/
 .history
@@ -11,6 +12,7 @@
 .metadata
 pubspec.lock
 coverage/
+references/
 
 # IntelliJ related
 *.iml
@@ -33,6 +35,7 @@ coverage/
 .pub-cache/
 .pub/
 /build/
+ios/Podfile.lock
 
 # Web related
 lib/generated_plugin_registrant.dart
