@@ -1,4 +1,5 @@
 import 'package:clutter/application/application_widget_keys.dart';
+import 'package:clutter/application/demos.dart';
 import 'package:clutter/features/settings/clutter_settings_widget.dart';
 import 'package:clutter/navigation/page_route.dart';
 import 'package:clutter/utils/clutter_icons.dart';
@@ -31,24 +32,26 @@ class ClutterApplicationScreen extends StatelessWidget {
               ClutterSettingsWidget(),
             ),
           ),
-          // TODO fix the following
-          Positioned(
-            key: Key('SomeKey'),
-            top: kToolbarHeight,
+          _screenPositionedWidget(
+            context,
             left: 20,
-            child: _screenPositionedWidgetOld(
-              context,
-              0.0,
-              200.0,
-              Colors.red,
-              title: 'left top',
-              height: 60.0,
-              width: 60.0,
-              onTap: () => {
-                throw UnimplementedError(),
-              },
-            ),
+            key: ClutterWidgetKeys().clutterScreenDemoKey,
+            top: kToolbarHeight,
+            title: 'Demo',
+            height: 60.0,
+            width: 60.0,
+            margin: EdgeInsets.all(0),
+            padding: EdgeInsets.all(0),
+            borderColor: Theme.of(context).colorScheme.onPrimary,
+            borderWidth: 2.0,
+            onTap: () => {
+              pushWidgetWithFade(
+                context,
+                Demo(),
+              ),
+            },
           ),
+          // TODO fix the following
           Positioned(
             key: Key('SomeKey2'),
             top: kToolbarHeight,

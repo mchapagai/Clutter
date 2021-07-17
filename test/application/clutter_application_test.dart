@@ -16,7 +16,7 @@ void main() async {
       WidgetTestWrapper widget = WidgetTestWrapper(
         Material(
           child: BlocProvider(
-            blocBuilder: () => ThemeBloc(),
+            create: () => ThemeBloc(),
             child: Navigator(
               key: mockNavigatorKey,
               onGenerateRoute: (routeStrrings) {

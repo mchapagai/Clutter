@@ -1,0 +1,43 @@
+## Unit Testing MindMap
+
+- Unit Testing
+    - Isolation Techniques
+        - Stubs
+        - Fake
+        - Refactoring
+        - Mock Objects
+        - Extract and Override
+    - Mocking
+        - Create Mock
+        - Inject Object
+        - Record Exceptions
+        - Replay
+        - Perform Test and Assertion
+    - Unit Tests
+        - Unit Test Steps
+        - Frameworks
+            - Junit
+            - TestNJ
+            - EasyMock, Mockito, JMockit
+        - Good Tests
+            - Maintainable
+            - Readable
+    - Definitions
+        - Registration
+        - Legacy Code
+        - External Dependency
+        - Constructor Injection
+        - Mock (Decouple)
+    - Test Types
+        - Automated
+        - Repeatable
+        - Easy to Maintain
+        - Implementation
+        - Run Quick
+    - Test Driven Development
+        - Automation
+        - Continuous Integration
+            - Jenkins
+            - Sonar
+        - Release Often
+        - Cross Functional

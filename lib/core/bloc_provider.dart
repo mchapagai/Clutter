@@ -9,10 +9,10 @@ abstract class BlocBase {
 
 class BlocProvider<T extends BlocBase?> extends StatefulWidget {
   final Widget? child;
-  final BlocBuilder<T>? blocBuilder;
-  final BlocDisposer<T>? blocDispose;
+  final BlocBuilder<T>? create;
+  final BlocDisposer<T>? dispose;
 
-  BlocProvider({this.child, this.blocBuilder, this.blocDispose});
+  BlocProvider({this.child, this.create, this.dispose});
 
   @override
   _BlocProviderState<T> createState() => _BlocProviderState<T>();
@@ -35,13 +35,13 @@ class _BlocProviderState<T extends BlocBase?> extends State<BlocProvider<T?>> {
   @override
   void initState() {
     super.initState();
-    bloc = widget.blocBuilder!();
+    bloc = widget.create!();
   }
 
   @override
   void dispose() {
-    if (widget.blocDispose != null) {
-      widget.blocDispose!(bloc);
+    if (widget.dispose != null) {
+      widget.dispose!(bloc);
     } else {
       bloc?.dispose();
     }

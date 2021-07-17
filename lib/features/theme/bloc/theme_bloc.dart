@@ -1,5 +1,5 @@
 import 'package:clutter/core/bloc_provider.dart';
-import 'package:clutter/features/theme/bloc/clutter-theme_provider.dart';
+import 'package:clutter/features/theme/bloc/clutter_theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -26,4 +26,3 @@ class ThemeBloc extends BlocBase {
     themeController.close();
   }
 }
-

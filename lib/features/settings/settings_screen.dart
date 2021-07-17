@@ -1,10 +1,19 @@
-import 'package:clutter/features/theme/bloc/clutter-theme_provider.dart';
+import 'package:clutter/features/theme/bloc/clutter_theme_provider.dart';
 import 'package:clutter/features/theme/bloc/theme_bloc.dart';
+import 'package:clutter/features/theme/view_model/theme_view_model.dart';
 import 'package:clutter/ui_kit/app_images.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsScreen extends StatelessWidget {
+  final Function onTapThemeChange;
+  final ThemeViewModel themeViewModel;
+
+  SettingsScreen({
+    required this.onTapThemeChange,
+    required this.themeViewModel,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,30 +137,17 @@ class SettingsScreen extends StatelessWidget {
   }
 
   _switch() {
-    bool isOnOff = true;
     return MergeSemantics(
       child: ListTile(
         title: Text('Lights'),
         trailing: Switch.adaptive(
-          value: isOnOff,
+          value: themeViewModel.isThemeChanged,
           onChanged: (bool value) {
-            _toogle(value);
+            onTapThemeChange(value);
           },
         ),
-        onTap: () => isOnOff = !isOnOff,
       ),
     );
-  }
-
-  _toogle(bool value) {
-    bool isOnOff = false;
-    if (isOnOff == false) {
-      isOnOff = true;
-      print('Switch is ON');
-    } else {
-      isOnOff = false;
-      print('Switch is OFF');
-    }
   }
 }
 

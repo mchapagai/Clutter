@@ -1,17 +1,17 @@
-import 'package:clutter/features/theme/api/shared_preferences_service.dart';
+import 'package:clutter/core/preferences_helper.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   group(
-    'Test ClutterSharedPreferences',
+    'Test PreferencesHelper',
     () {
-      ClutterSharedPreferences? sharedPreferences = ClutterSharedPreferences();
+      PreferencesHelper? sharedPreferences = PreferencesHelper();
 
       setUp(
         () async {
           SharedPreferences.setMockInitialValues({});
-          await sharedPreferences.init();
+          await sharedPreferences.initPreferences();
         },
       );
 
@@ -29,13 +29,13 @@ void main() {
           );
 
           sharedPreferences.setValue<String>(
-            key: ClutterSharedPreferences().themeKey,
+            key: 'theme',
             value: "clutter",
           );
 
           expect(
             sharedPreferences.getValue<String>(
-              key: ClutterSharedPreferences().themeKey,
+              key: 'theme',
               defaultValue: "nope",
             ),
             equals("clutter"),
@@ -70,12 +70,12 @@ void main() {
         'Removing a value should return null or a default value',
         () {
           sharedPreferences.removeValue(
-            key: ClutterSharedPreferences().themeKey,
+            key: 'theme',
           );
 
           expect(
             sharedPreferences.getValue<int>(
-              key: ClutterSharedPreferences().themeKey,
+              key: 'theme',
               defaultValue: 0,
             ),
             equals(0),
@@ -83,7 +83,7 @@ void main() {
 
           expect(
             sharedPreferences.getValue<int>(
-              key: ClutterSharedPreferences().themeKey,
+              key: 'theme',
               defaultValue: -1,
             ),
             equals(-1),
